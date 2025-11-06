@@ -1,0 +1,10 @@
+# 在 .gitignore 中添加
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
