@@ -65,6 +65,9 @@ def bezier_interpolation_with_easing(original_frames, target_frame_count, easing
 
 def cubic_spline_interpolation(original_frames, target_frame_count):
     """使用三次样条插值进行平滑扩展"""
+    if len(original_frames) == 1:
+        original_frames.append(original_frames[0].copy())
+
     n_original = len(original_frames)
     dim = len(original_frames[0])
     
@@ -98,6 +101,9 @@ def cubic_spline_interpolation(original_frames, target_frame_count):
 
 def interpolate_with_easing(original_frames, target_frame_count, easing_func=None):
     """使用缓动函数控制插值节奏"""
+    if len(original_frames) == 1:
+        original_frames.append(original_frames[0].copy())
+
     n_original = len(original_frames)
     dim = len(original_frames[0])
     
@@ -215,8 +221,8 @@ def ease_in_out_cubic(alpha):
 if __name__ == '__main__':
     import json
     from custom_json_format import format_dict
-    
-    file_name = "/home/myf/myf/work_space/tools/expression _zhaojun_F03.json"
+    '''
+    file_name = "/home/myf/myf/work_space/tools/expression_zhaojun_F03.json"
     output_file = 'processed_expression_zhaojun_F03.json'
     with open(file_name, 'r', encoding='UTF-8') as f:
         expression = json.load(f)
@@ -244,3 +250,8 @@ if __name__ == '__main__':
 
         
     print(f'已写入文件{output_file}')
+
+    '''
+
+    result = global_bezier_interpolation([[1]],10)
+    print(result)
